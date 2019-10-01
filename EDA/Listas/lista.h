@@ -8,3 +8,6 @@ typedef struct lista{
    int taminfo;
    int quantidade;
 }Lista;
+
+void inicializa_lista(Lista l, int t);
+int insere_lista(Lista *l,void *info);
