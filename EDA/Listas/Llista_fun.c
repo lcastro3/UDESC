@@ -2,25 +2,37 @@
 #include<stdlib.h>
 #include"lista.h"
 
-void inicializa_lista(Lista *l,int t){
+void inicializa_lista(Lista *l, int info){
     l->head = NULL;
-    l->taminfo = t;
     l->quantidade = 0;
+    l->taminfo = info;
 }
 
-int  insere_lista(Lista *l,void *info){
-    No *p = malloc(sizeof(No));
+int insere_inicio(Lista *l, void *info){
+    Elemento *p = malloc(sizeof(Elemento));
     if(p==NULL){
-        return 0; /*Falta de memoria*/
-    }
-    p->info = malloc(l->taminfo);
-    if(p->info == NULL){
         free(p);
-        return 0;
     }
     memcpy(p->info, info,l->taminfo);
+    p->prox = l->head;
     l->head = p;
-    p->prox = NULL;
     l->quantidade ++;
     return 1;
+}
+
+int remove_inicio(Lista *l, void *info){
+    if(lista_vazia(*l)){
+        return ERRO;
+    }
+    Elemento *p = l->head;
+    memcpy (info,p->info,l->taminfo);
+    l->head = p->prox;
+    free(p->info);
+    free(p);
+    l->quantidade --;
+    return 1;
+}
+
+int insere_fim(Lista *l, void *info){
+
 }

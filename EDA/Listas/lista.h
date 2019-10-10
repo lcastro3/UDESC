@@ -1,13 +1,16 @@
-typedef struct no_lista{
+typedef struct elemento{
     void *info; /*adiciona qualquer tipo de informação*/
-    struct no_lista *prox; /*chama novamente a estrutura, para que seja adicionado uma nova info*/
-}No;
+    struct elemento *prox; /*chama novamente a estrutura, para que seja adicionado uma nova info*/
+}Elemento;
 
 typedef struct lista{
-   No *head;
+   Elemento *head;
    int taminfo;
    int quantidade;
 }Lista;
 
-void inicializa_lista(Lista l, int t);
-int insere_lista(Lista *l,void *info);
+void inicializa_lista(Lista *l, int info);
+int insere_inicio (Lista *l, void *info);
+int remove_inicio(Lista *l, void *info);
+int insere_fim(Lista *l, void *info);
+int remove_fim(Lista *l, void *info);
