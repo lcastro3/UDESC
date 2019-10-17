@@ -14,3 +14,4 @@ int insere_inicio (Lista *l, void *info);
 int remove_inicio(Lista *l, void *info);
 int insere_fim(Lista *l, void *info);
 int remove_fim(Lista *l, void *info);
+int removeDaPos(Lista*l, void *info, int pos);

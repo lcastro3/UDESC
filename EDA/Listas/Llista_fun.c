@@ -36,3 +36,26 @@ int remove_inicio(Lista *l, void *info){
 int insere_fim(Lista *l, void *info){
 
 }
+
+int removeDaPos(Lista *l,void *info,int pos){
+    if(lista_vazia(*l))
+        return ERRO_LISTA_VAZIA;
+    if(pos<0 || pos>= L->quantidade){
+        return ERRO_LISTA_VAZIA;
+    }
+    if (pos == 0){
+        return remove_inicio(l,info);
+    }
+    Elemento *p = p = l-> head;
+    int cont;
+    for (cont = 0 ; cont < pos - 1 ; cont ++){
+        p = p -> prox;
+    }
+    Elemento *x = p-> prox;
+    p -> prox = x -> prox;
+    memcpy (info,x->info,l->taminfo);
+    free (x->info);
+    free(x);
+    l->quantidade --;
+    return 1;
+}
