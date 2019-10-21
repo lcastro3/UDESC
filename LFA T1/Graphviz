@@ -1,0 +1,22 @@
+# http://www.graphviz.org/content/cluster
+
+digraph G {
+
+	
+    0->1 [label="Ap,Ag,Af<f>"]
+    0->2 [label="Bp,Bg,Bg<f>"] 
+    1->3 [label="Ag"]
+    2->3 [label="Bg"]
+    1->4 [label="Ap,Ag,Af"]
+    4->1 [label="Ag"]
+    5->2 [label="Bg"]
+    2->5 [label="Bp,Bg,Bf"]
+    3,4,5 [shape=doublecircle]
+
+	start -> 0;
+	3,4,5 -> end;
+	
+	start [shape=Mdiamond];
+	end [shape=Msquare];
+}
+# só com o suposto armazem
