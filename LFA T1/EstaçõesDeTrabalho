@@ -1,0 +1,25 @@
+# Estação Peça 1:
+digraph G {
+	start -> Robo;
+	Robo -> Mill [label=0];
+	Mill -> Robo [label=1];
+	Robo -> Turn [label=1];
+	Turn -> Robo [label=2];
+	Turn [shape=circle];
+	Mill [shape=circle];
+    Robo [shape=doublecircle];
+	start [shape=Mdiamond];
+}
+
+#Estação Peça 2:
+digraph G {
+	start -> Robo;
+	Robo -> Parafusadeira [label=01];
+	Parafusadeira -> Robo [label=3];
+	Robo -> Colagem [label=23];
+	Colagem -> Robo [label=4];
+	Colagem [shape=circle];
+	Parafusadeira [shape=circle];
+    Robo [shape=doublecircle];
+	start [shape=Mdiamond];
+}
